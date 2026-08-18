@@ -1,1 +1,1 @@
-{"timestamp": "2026-08-18T15:59:13.227533Z", "endpoint": "/triage", "prompt_version": "triage-v1", "model": "openrouter/free", "original_output": "not json", "repair_output": "not json", "failure_reason": "validation_failed"}
+{"timestamp": "2026-08-18T16:04:37.055098Z", "endpoint": "/triage", "prompt_version": "triage-v1", "model": "openrouter/free", "original_output": "not json", "repair_output": "not json", "failure_reason": "validation_failed"}

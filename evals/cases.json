@@ -1,0 +1,50 @@
+[
+  {
+    "id": "case-01",
+    "text": "I was charged twice for my subscription and need a refund.",
+    "expected_category": "billing",
+    "expected_urgency": "high"
+  },
+  {
+    "id": "case-02",
+    "text": "The checkout button crashes every time I click it on mobile.",
+    "expected_category": "bug",
+    "expected_urgency": "high"
+  },
+  {
+    "id": "case-03",
+    "text": "Can you add an option to export my data as CSV?",
+    "expected_category": "feature",
+    "expected_urgency": "normal"
+  },
+  {
+    "id": "case-04",
+    "text": "I have a question about how trial periods work.",
+    "expected_category": "other",
+    "expected_urgency": "low"
+  },
+  {
+    "id": "case-05",
+    "text": "My invoice shows a charge I don't recognize.",
+    "expected_category": "billing",
+    "expected_urgency": "normal"
+  },
+  {
+    "id": "case-06",
+    "text": "The app freezes when I try to upload a file.",
+    "expected_category": "bug",
+    "expected_urgency": "normal"
+  },
+  {
+    "id": "case-07",
+    "text": "Would be great if reports could be scheduled weekly.",
+    "expected_category": "feature",
+    "expected_urgency": "low"
+  },
+  {
+    "id": "case-08",
+    "text": "How do I change my account email address?",
+    "expected_category": "other",
+    "expected_urgency": "normal"
+  }
+]
