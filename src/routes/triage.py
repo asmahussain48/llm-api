@@ -2,19 +2,25 @@ from fastapi import APIRouter, status, HTTPException
 from fastapi.responses import JSONResponse
 
 from src.llm.schema import TriageInput, TriageOutput
-from src.llm.service import triage_support_message
+from src.llm.service import triage_support_message, ModelValidationError
 
 router = APIRouter()
 
 
 @router.post("/triage", response_model=TriageOutput, status_code=status.HTTP_200_OK, summary="Triage a support message")
 async def triage_route(payload: TriageInput):
-    """Accept a support message and return triage classification (stub during Stage 1 or real LLM in Stage 2)."""
+    """Accept a support message and return triage classification (stub during Stage 1 or real LLM in Stage 2).
+
+    Handles model validation failures (422) separately from provider failures (502).
+    """
     try:
         result = triage_support_message(payload.text)
+    except ModelValidationError as e:
+        # Model produced invalid output even after one repair attempt
+        raise HTTPException(status_code=422, detail=str(e))
     except RuntimeError as e:
-        # Do not expose internal details or secrets
-        raise HTTPException(status_code=502, detail=str(e))
+        # Do not expose internal details or secrets for provider errors
+        raise HTTPException(status_code=502, detail="LLM provider error")
     except Exception:
         raise HTTPException(status_code=500, detail="Internal server error")
 
